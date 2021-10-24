@@ -1,0 +1,36 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+@import '../node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel.scss';
+@import '../node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default.scss';
+@import '../node_modules/animate.css/animate.min.css';
+/****** FONTS *****/
+
+@font-face {
+    font-family: 'OmnesBold';
+    src: url('./assets/fonts/omnes/Omnes-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'OmnesRegular';
+    src: url('./assets/fonts/omnes/Omnes-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'OmnesBlack';
+    src: url('./assets/fonts/omnes/OmnesBlack.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'OmnesMedium';
+    src: url('./assets/fonts/omnes/OmnesMedium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'OmnesLight';
+    src: url('./assets/fonts/omnes/OmnesLight.otf') format('opentype');
+}
+
+
+

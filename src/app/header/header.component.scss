@@ -1,0 +1,27 @@
+.cuadro-1{
+    background-color: #2F538C;
+}
+.cuadro-2{
+    background-color: #F26836;
+}
+
+.cuadro-3{
+    background-color: #F6B428;
+}
+
+.img-icon{
+    height: 25px;
+}
+.img-compra{
+    height: 32px;
+    color: white !important;
+}
+@media screen and (max-width: 1050px) {
+    .cuadro-1 {
+        display: none  !important;
+    }
+    .cuadro-2{
+        max-width: 80% !important;
+    }
+  }
+  

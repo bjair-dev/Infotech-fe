@@ -1,0 +1,27 @@
+.text-nuevo{
+    color: #2F538C;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    border-bottom: 4px solid #ff9306;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-family: Montserrat,sans-serif;
+}
+
+
+
+
+
+
+::ng-deep .logo-brand{
+  text-align: center;
+  filter: grayscale(100%);
+  transition: opacity .15s,transform .15s;
+max-height: 98px;
+min-height: 50px;
+}
+.logo-brand:hover{
+filter: grayscale(0%);
+transform: scale(1.1);
+}
+
