@@ -1,0 +1,191 @@
+<div fxLayout="row" style="padding-top: 25px; margin: 0 35px auto;"   fxLayout.xs="column"  fxLayoutGap="25px">
+  <div fxFlex="25" class="p16 conten-lateral" fxLayout="column" style="width: 100%; height: 100%;" fxLayoutAlign="start start">
+    <div class="text-cate">
+      Categorías
+    </div>
+    
+    <div class="borde-toptom row-fila"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
+
+      <a   style="display: block; height: auto; text-align: center; padding-left: 10px;" >
+          <img class="img-icon animate" src="../../assets/icon/pc.svg">      
+         </a>
+
+         <a   class="text-icon">
+          Computadoras
+      </a>
+      </div>
+
+
+      <div class="borde-toptom-v2 row-fila"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
+
+          <a   style="display: block; height: auto; text-align: center; padding-left: 10px;" >
+              <img class="img-icon animate" src="../../assets/icon/laptop.svg">      
+             </a>
+  
+             <a   class="text-icon">
+              Laptops
+          </a>
+          </div>
+
+
+          <div class="borde-toptom-v2 row-fila"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
+
+              <a   style="display: block; height: auto; text-align: center; padding-left: 10px;" >
+                  <img class="img-icon animate" src="../../assets/icon/psp.svg">      
+                 </a>
+      
+                 <a   class="text-icon">
+                  Zona Gamer
+              </a>
+              </div>
+
+              <div class="borde-toptom-v2 row-fila"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
+
+                  <a   style="display: block; height: auto; text-align: center; padding-left: 10px;" >
+                      <img class="img-icon animate" src="../../assets/icon/reparacion.svg">      
+                     </a>
+          
+                     <a   class="text-icon">
+                      Partes de PC
+                  </a>
+                  </div>
+
+                  <div class="borde-toptom-v2 row-fila"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
+
+                      <a   style="display: block; height: auto; text-align: center; padding-left: 10px;" >
+                          <img class="img-icon animate" src="../../assets/icon/monitor.svg">      
+                         </a>
+              
+                         <a   class="text-icon">
+                          Monitores
+                      </a>
+                      </div>
+   
+                      <div class="borde-toptom-v2 row-fila"  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" >
+
+                          <a   style="display: block; height: auto; text-align: center; padding-left: 10px;" >
+                              <img class="img-icon animate" src="../../assets/icon/impresora.svg">      
+                             </a>
+                  
+                             <a   class="text-icon">
+                              Impresoras
+                          </a>
+                          </div>
+
+
+
+  </div>
+  <div fxFlex="75"  class="p16" fxLayout="column">
+      <div class="text-nuevo">
+          Lo Nuevo de Infotech
+        </div>
+        
+    <div fxLayout="row "  fxLayoutAlign="start center" >
+     
+      <div style="width: 100%;" >
+        <owl-carousel-o [options]="customOptions" >
+        
+          <ng-template carouselSlide *ngFor="let p of products">
+            
+            <div class="card">
+              <div class="imgBx">
+                  <img [src]="p.image" alt="{{p.nombre}}" width="200px" class="card-img-top" (click)="selectProduct(p.id)" style="cursor:pointer;">
+              </div>
+              <div class="logo-brand">
+                <a  href="">
+                          <img style="width: 18%;"  [src]="p.imagedes" alt="">
+                                           
+                </a>
+            </div>
+              <div class="contextBx">
+                  <p class="text-name">{{p.nombre | titlecase}}</p>
+                  <p class="price">{{p.precio | currency:'S/.'}}<!-- <small>.22</small> --></p>
+                   <button class="buy btn btn-outline-primary btn-sm btn-block"
+                          [class.disabled]="p.quantity < 1"
+                          [class.btn-outline-danger]="p.quantity < 1"
+                          (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+                    {{ p.quantity < 1 ? "NO STOCK" : "Comprar"}}
+                  </button>
+              </div>
+          </div>
+    
+
+          </ng-template>
+          
+
+      
+
+
+
+
+        </owl-carousel-o>
+      
+      </div>
+   
+      
+
+    
+     
+      
+
+ 
+  </div>
+  
+</div>
+
+
+
+
+</div>
+
+
+
+
+<!-- <div class="section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="section-title">
+          <h3 class="title">New Products</h3>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4 col-sm-6" *ngFor="let p of products">
+            <div class="card my-2">
+              <img [src]="p.image" alt="{{p.nombre}}" width="200px" class="card-img-top" (click)="selectProduct(p.id)" style="cursor:pointer;">
+              <div class="card-header">
+                <div class="card-title">
+                  <p>{{p.nombre | titlecase}}</p>
+                </div>
+              </div>
+              <div class="card-body">
+                <h6>{{p.descripcion.substr(0, 40)}} ....</h6>
+                <p class="lead">{{p.precio | currency:'S/.'}}</p>
+              </div>
+
+              <div class="row d-flex justify-content-center border-primary my-3">
+                <div class="col-md-6 ">
+                  <button class="btn btn-outline-primary btn-sm btn-block"
+                          [class.disabled]="p.quantity < 1"
+                          [class.btn-outline-danger]="p.quantity < 1"
+                          (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart"}}
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+ -->

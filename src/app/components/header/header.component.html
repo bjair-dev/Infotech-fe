@@ -1,0 +1,251 @@
+<header fxFlex="100" fxLayout="row" fxLayoutAlign="center">
+  <div class="cuadro-1" fxFlex="10" fxLayoutAlign="start center" fxLayout="row">
+    <a style="display: block; height: auto; margin-left: 15px">
+      <img class="img-icon" src="../../../assets/icon/tiendas.svg" />
+    </a>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <a class="tiendas-text"> Nuestras </a>
+      <a class="tiendas-text"> Tiendas </a>
+    </div>
+  </div>
+  <div fxFlex="70" class="cuadro-2" fxLayoutAlign="start center">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <a
+        style="
+          display: block;
+          height: auto;
+          text-align: center;
+          padding-left: 10px;
+        "
+      >
+        <img class="img-icon" src="../../../assets/icon/email.svg" />
+      </a>
+
+      <a
+        style="
+          font-size: 15px;
+          display: block;
+          height: auto;
+          text-align: center;
+          font-family: Montserrat, Helvetica, sans-serif;
+          color: white;
+        "
+      >
+        informes@infotech.com.pe
+      </a>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <a
+        style="
+          display: block;
+          height: auto;
+          text-align: center;
+          padding-left: 10px;
+        "
+      >
+        <img class="img-icon" src="../../../assets/icon/whatsapp.svg" />
+      </a>
+
+      <a
+        style="
+          font-size: 15px;
+          display: block;
+          height: auto;
+          text-align: center;
+          font-family: Montserrat, Helvetica, sans-serif;
+          color: white;
+        "
+      >
+        946 069 436
+      </a>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <a
+        style="
+          display: block;
+          height: auto;
+          text-align: center;
+          padding-left: 10px;
+        "
+      >
+        <img class="img-icon" src="../../../assets/icon/callcenter.svg" />
+      </a>
+
+      <a
+        style="
+          font-size: 15px;
+          display: block;
+          height: auto;
+          text-align: center;
+          font-family: Montserrat, Helvetica, sans-serif;
+          color: white;
+        "
+      >
+        946 069 436
+      </a>
+    </div>
+  </div>
+  <!--    <div fxFlex="20"  class="cuadro-3" fxLayoutAlign="center center" style="height: 60px;" fxLayoutGap="15px" >
+      <a   style="display: block; height: auto; text-align: center;">
+          <img class="img-compra" src="../../assets/icon/shopping cart.svg">
+       </a>
+       <div fxLayout="Row" fxLayoutAlign="center center" >
+        <div class="dropdown" >
+          <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
+            <i class="fa fa-shopping-cart"></i>
+            <span>Your Cart</span>
+            <div class="qty">{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}}</div>
+          </a>
+          <div class="cart-dropdown" >
+            <div class="cart-list" *ngIf="cartData.data[0].numInCart !== 0">
+              <div class="product-widget" *ngFor="let c of cartData.data; let i=index">
+                <div class="product-img">
+                  <img src="{{c.product?.image}}" alt="" width="20px">
+                </div>
+                <div class="product-body">
+                  <h3 class="product-name"><a href="#">{{c.product?.nombre}}</a></h3>
+                  <h4 class="product-price"><span class="qty">{{c.numInCart}} x </span>{{c.product?.precio | currency:'S/.'}}</h4>
+                </div>
+                <button class="delete" (click)="cartService.DeleteProductFromCart(i)"><i class="fa fa-close"></i></button>
+              </div>
+
+
+            </div>
+            <div class="cart-summary">
+              <small>{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} Item(s) selected</small>
+              <h5>TOTAL : {{cartTotal | currency:'S/.'}}</h5>
+            </div>
+            <div class="cart-btns">
+              <a routerLink="/cart">View Cart</a>
+              <a routerLink="/checkout">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+       </div>
+    </div> -->
+
+  <div
+    fxFlex="20"
+    class="cuadro-3"
+    fxLayoutAlign="center center"
+    fxLayoutGap="15px"
+  >
+    <a style="display: block; height: auto; text-align: center">
+      <mat-icon
+        class="img-compra"
+        matBadge="{{
+          cartData.data[0].numInCart !== 0 ? cartData.data.length : 0
+        }}"
+        svgIcon="carte"
+        matBadgeColor="warn"
+      ></mat-icon>
+    </a>
+
+    <div fxLayout="Row" fxLayoutAlign="center center" fxLayoutGap="15px">
+      <div class="cart">
+        <a
+          style="
+            font-size: 21px;
+            display: block;
+            height: auto;
+            text-align: center;
+            font-family: Montserrat, Helvetica, sans-serif;
+            color: white;
+          "
+        >
+          {{ cartTotal | currency: "S/." }}
+          <span class="material-icons"> arrow_drop_down </span>
+        </a>
+
+        <div class="list">
+          <div>
+            <div class="despliege" *ngIf="cartData.data[0].numInCart !== 0">
+              <div
+                class="producto-widget-x"
+                *ngFor="let c of cartData.data; let i = index"
+              >
+                <div class="pro-img">
+                  <img src="{{ c.product?.image }}" alt="" width="20px" />
+                </div>
+                <div class="product-body-x">
+                  <h3 class="producto-name">
+                    <a style="text-decoration: none" href="#">{{
+                      c.product?.nombre
+                    }}</a>
+                  </h3>
+                  <h4 class="producto-price">
+                    <span class="qty">{{ c.numInCart }} x </span
+                    >{{ c.product?.precio | currency: "S/." }}
+                  </h4>
+                </div>
+                <button
+                  class="deletex"
+                  (click)="cartService.DeleteProductFromCart(i)"
+                >
+                  <i class="fa fa-close"></i>
+                </button>
+              </div>
+            </div>
+            <div class="cart-suma">
+              <small
+                >{{
+                  cartData.data[0].numInCart !== 0 ? cartData.data.length : 0
+                }}
+                Producto(s) Seleccionados</small
+              >
+              <h5>TOTAL : {{ cartTotal | currency: "S/." }}</h5>
+            </div>
+            <div class="cart-botones" fxLayout="Row">
+              <a routerLink="/cart" class="btncheck btncart">Ver Carrito</a>
+              <a routerLink="/checkout" class="btncheck"
+                >Comprar <i class="fa fa-arrow-circle-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--   <div>
+      <div class="cart">
+        This is a cart
+        <div class="list">
+          <div  >
+            <div class="despliege" *ngIf="cartData.data[0].numInCart !== 0">
+              <div class="producto-widget-x" *ngFor="let c of cartData.data; let i=index">
+                <div class="pro-img" >
+                  <img src="{{c.product?.image}}" alt="" width="20px">
+                </div>
+                <div  class="product-body-x">
+                  <h3 class="producto-name"><a href="#">{{c.product?.nombre}}</a></h3>
+                  <h4 ><span class="qty">{{c.numInCart}} x </span>{{c.product?.precio | currency:'S/.'}}</h4>
+                </div>
+                <button class="deletex" (click)="cartService.DeleteProductFromCart(i)"><i class="fa fa-close"></i></button>
+              </div>
+      
+      
+            </div>
+            <div class="cart-suma">
+              <small>{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} Item(s) selected</small>
+              <h5>TOTAL : {{cartTotal | currency:'S/.'}}</h5>
+            </div>
+            <div class="cart-botones">
+              <a routerLink="/cart"  class="btncheck btncart">View Cart</a>
+              <a routerLink="/checkout"  class="btncheck">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+
+
+        
+
+          
+        </div>
+      </div>
+
+
+    </div> -->
+</header>

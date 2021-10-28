@@ -1,0 +1,237 @@
+<mg-header></mg-header>
+<app-header-top></app-header-top>
+
+
+<!-- BREADCRUMB -->
+<div class="section" id="breadcrumb">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb-tree">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Productos</a></li>
+    
+          <li><a href="#">{{product.categoria}}</a></li>
+          <li class="active">{{product.nombre}}</li>
+        </ul>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row d-flex">
+      <!-- Product main img -->
+      <div class="col-md-5 col-md-push-2">
+        <div id="product-main-img">
+          <ng-template [ngIf]="thumbimages.length === 0">
+            <div class="product-preview">
+              <img [src]="product.image" alt="">
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="thumbimages.length > 0">
+            <div class="product-preview" *ngFor="let t of thumbimages">
+              <img [src]="t" alt="">
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <!-- /Product main img -->
+
+      <!-- Product thumb imgs -->
+      <div class="col-md-2  col-md-pull-5 ">
+       <ng-template [ngIf]="thumbimages.length > 0">
+         <div id="product-imgs">
+           <div *ngFor="let t of thumbimages" class="product-preview">
+             <img [src]="t" alt="">
+           </div>
+         </div>
+       </ng-template>
+        <ng-template [ngIf]="thumbimages.length === 0">
+          <div id="product-imgs">
+            <div class="product-preview">
+              <img [src]="product.image" alt="">
+            </div>
+          </div>
+        </ng-template>
+      </div>
+      <!-- /Product thumb imgs -->
+
+      <!-- Product details -->
+      <div class="col-md-5">
+        <div class="product-details">
+          <h2 class="product-name">{{product?.nombre}}</h2>
+         
+          <div>
+            <h3 class="product-price">{{product?.precio | currency:'S/.'}} </h3>
+            <span class="product-available">In Stock</span>
+          </div>
+          <li>Marca: {{product?.Marca}}</li>
+          <li>Producto : {{product?.Producto}}</li>
+          <li>Memoria RAM: {{product?.Memoria}}</li>
+          <li>Almacenamiento: {{product?.Almacenamiento}}</li>
+          <li>Pantalla: {{product?.Pantalla}}</li>
+          <li>Sistema: {{product?.Sistema}}</li>
+
+          
+
+          <div class="add-to-cart">
+            <div class="qty-label">
+              Cantidad
+              <div class="input-number">
+                <input #quantity [max]="product?.quantity" [min]="product?.quantity >= 1 ? product?.quantity : 0"
+                       readonly type="number" value="{{product?.quantity >= 1 ? 1 : 0}}">
+                <span (click)="Increase()" class="qty-up">+</span>
+                <span (click)="Decrease()" class="qty-down">-</span>
+              </div>
+            </div>
+            <button (click)="addToCart(product?.id)" *ngIf="product?.quantity >= 1" class="add-to-cart-btn"><i
+              class="fa fa-shopping-cart"></i>Agregar al Carrito
+            </button>
+          </div>
+
+          <ul class="product-links">
+            <li>Categoria:</li>
+            <li><a href="#">{{product.categoria}}</a></li>
+          </ul>
+
+       
+
+        </div>
+      </div>
+      <!-- /Product details -->
+
+      <!-- Product tab -->
+      <div class="col-md-12">
+        <div id="product-tab">
+          <!-- product tab nav -->
+          <ul class="tab-nav" role="tablist">
+            <li class="active" role="presentation"><a data-toggle="tab" href="#tab1" role="tab">DETALLES</a></li>
+            <li role="presentation"><a data-toggle="tab" href="#tab2" role="tab">FICHA TÉCNICA</a></li>
+          </ul>
+          <!-- /product tab nav -->
+
+          <!-- product tab content -->
+          <div class="tab-content">
+            <!-- tab1  -->
+            <div class="tab-pane fade in active" id="tab1" role="tabpanel">
+              <div class="row" id="frmConstancia" >
+                <div fxLayout="row" style="padding-top: 25px; margin: 0 35px auto;"   fxLayout.xs="column"  fxLayoutGap="25px">
+                  <div  fxFlex="25" class="p16 conten-lateral" fxLayout="column" style="width: 100%; height: 100%;" fxLayoutAlign="start start">
+                    <div class="product-preview">
+                      <img [src]="product.image" alt="">
+                    </div>
+                
+                  </div>
+                  <div fxFlex="75"  fxLayout="column">
+
+                    <table class="table table-dark">
+                    
+                      <tbody>
+                        <tr>
+                          <th scope="row">#</th>
+                          <td>Caracteristicas</td>
+                        
+                        </tr>
+                        <tr>
+                          <th scope="row">Marca</th>
+                          <td>{{product?.Marca}}</td>
+                        
+                        </tr>
+                        <tr>
+                          <th scope="row">Producto</th>
+                          <td>{{product?.Producto}}</td>
+                         
+                        </tr>
+                        <tr>
+                          <th scope="row">Memoria</th>
+                          <td>{{product?.Memoria}}</td>
+                         
+                        </tr>
+                        <tr>
+                          <th scope="row">Almacenamiento</th>
+                          <td>{{product?.Almacenamiento}}</td>
+                         
+                        </tr>
+                        <tr>
+                          <th scope="row">Pantalla</th>
+                          <td>{{product?.Pantalla}}</td>
+                         
+                        </tr>
+                        <tr>
+                          <th scope="row">Sistema</th>
+                          <td>{{product?.Sistema}}</td>
+                         
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <li>Marca: {{product?.Marca}}</li>
+                    <li>Producto : {{product?.Producto}}</li>
+                    <li>Memoria RAM: {{product?.Memoria}}</li>
+                    <li>Almacenamiento: {{product?.Almacenamiento}}</li>
+                    <li>Pantalla: {{product?.Pantalla}}</li>
+                    <li>Sistema: {{product?.Sistema}}</li>
+
+                    
+                </div>
+                
+                
+                
+                </div>
+
+             <!--    <div id="frmConstancia" style="display: none;" class="col-md-12">
+                  <li>Marca: {{product?.Marca}}</li>
+                  <li>Producto : {{product?.Producto}}</li>
+                  <li>Memoria RAM: {{product?.Memoria}}</li>
+                  <li>Almacenamiento: {{product?.Almacenamiento}}</li>
+                  <li>Pantalla: {{product?.Pantalla}}</li>
+                  <li>Sistema: {{product?.Sistema}}</li>
+        
+                </div> -->
+              </div>
+              <button type="button" style="margin: 10px;" class="btn btn-primary" (click)="imprimirLista()"> IMPRIMIR</button>
+
+            </div>
+            <!-- /tab1  -->
+
+            <!-- tab2  -->
+            <div class="tab-pane fade in" id="tab2" role="tabpanel">
+              <div class="row">
+                <div class="col-md-12">
+                  <li>Marca: {{product?.Marca}}</li>
+                  <li>Producto : {{product?.Producto}}</li>
+                  <li>Memoria RAM: {{product?.Memoria}}</li>
+                  <li>Almacenamiento: {{product?.Almacenamiento}}</li>
+                  <li>Pantalla: {{product?.Pantalla}}</li>
+                  <li>Sistema: {{product?.Sistema}}</li>
+        
+                </div>
+              </div>
+            </div>
+            <!-- /tab2  -->
+
+        
+          </div>
+          <!-- /product tab content  -->
+        </div>
+      </div>
+      <!-- /product tab -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+
+<mg-footer-v2></mg-footer-v2>

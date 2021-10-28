@@ -2,7 +2,7 @@ $(window).scroll(function(event) {
 	function footer()
     {
         var scroll = $(window).scrollTop(); 
-        if(scroll < 3250)
+        if(scroll < 2250)
         { 
             $(".footer-nav").fadeIn("slow").addClass("sticky");
 

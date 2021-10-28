@@ -1,0 +1,109 @@
+<div fxLayout="row" style="padding-top: 25px; margin: 0 35px auto; ">
+    <div class="text-nuevo">
+        Lo Nuevo de Infotech
+      </div>
+</div>
+<div fxLayout="row" style="padding-top: 25px; " fxLayout.md="row" fxLayout.sm="row"   fxLayout.xs="column" fxLayoutAlign="center center"   fxLayoutGap="25px">
+ 
+    <div  class="card" *ngFor="let p of products"> 
+        <div class="imgBx">
+            <img [src]="p.image" alt="{{p.nombre}}" width="200px" class="card-img-top" (click)="selectProduct(p.id)" style="cursor:pointer;">
+        </div>
+        <div class="logo-brand">
+          <a  href="">
+                    <img  style="width: 24%;" [src]="p.imagedes" alt="">
+                                     
+          </a>
+      </div>
+        <div class="contextBx">
+            <p class="text-name">{{p.nombre | titlecase}}</p>
+            <p class="price">{{p.precio | currency:'S/.'}}<!-- <small>.22</small> --></p>
+             <button class="buy btn btn-outline-primary btn-sm btn-block"
+                    [class.disabled]="p.quantity < 1"
+                    [class.btn-outline-danger]="p.quantity < 1"
+                    (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+              {{ p.quantity < 1 ? "NO STOCK" : "Comprar"}}
+            </button>
+        </div>
+    </div>
+
+
+   
+            
+</div>
+
+
+
+<div fxLayout="row" style="padding-top: 25px; margin: 0 35px auto;">
+    <div class="text-nuevo">
+        OFERTAS
+      </div>
+</div>
+<div fxLayout="row" style="padding-top: 25px; " fxLayout.md="row" fxLayout.sm="row"   fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="25px">
+ 
+    <div  class="card" *ngFor="let p of products"> 
+        <div class="imgBx">
+            <img [src]="p.image" alt="{{p.nombre}}" width="200px" class="card-img-top" (click)="selectProduct(p.id)" style="cursor:pointer;">
+        </div>
+        <div class="logo-brand">
+          <a  href="">
+                    <img  style="width: 24%;" [src]="p.imagedes" alt="">
+                                     
+          </a>
+      </div>
+        <div class="contextBx">
+            <p class="text-name">{{p.nombre | titlecase}}</p>
+            <p class="price">{{p.precio | currency:'S/.'}}<!-- <small>.22</small> --></p>
+             <button class="buy btn btn-outline-primary btn-sm btn-block"
+                    [class.disabled]="p.quantity < 1"
+                    [class.btn-outline-danger]="p.quantity < 1"
+                    (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+              {{ p.quantity < 1 ? "NO STOCK" : "Comprar"}}
+            </button>
+        </div>
+    </div>
+
+  
+            
+</div>
+
+<div fxLayout="row" style="padding-top: 25px; ">
+<div class="carousel-item">
+    <img src="../../assets/img/slider-01.jpg">
+</div>
+
+</div>
+
+<div fxLayout="row" style="padding-top: 25px; margin: 0 35px auto; ">
+    <div class="text-nuevo">
+       LAPTOPS
+      </div>
+</div>
+<div fxLayout="row" style="padding-top: 25px; "  fxLayout.md="row" fxLayout.sm="row"   fxLayout.xs="column" fxLayoutAlign="center center"  fxLayoutGap="25px">
+ 
+    <div  class="card" *ngFor="let p of products"> 
+        <div class="imgBx">
+            <img [src]="p.image" alt="{{p.nombre}}" width="200px" class="card-img-top" (click)="selectProduct(p.id)" style="cursor:pointer;">
+        </div>
+        <div class="logo-brand">
+          <a  href="">
+                    <img style="width: 24%;"  [src]="p.imagedes" alt="">
+                                     
+          </a>
+      </div>
+        <div class="contextBx">
+            <p class="text-name">{{p.nombre | titlecase}}</p>
+            <p class="price">{{p.precio | currency:'S/.'}}<!-- <small>.22</small> --></p>
+             <button class="buy btn btn-outline-primary btn-sm btn-block"
+                    [class.disabled]="p.quantity < 1"
+                    [class.btn-outline-danger]="p.quantity < 1"
+                    (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+              {{ p.quantity < 1 ? "NO STOCK" : "Comprar"}}
+            </button>
+        </div>
+    </div>
+
+
+  
+            
+</div>
